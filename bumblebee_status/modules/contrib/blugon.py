@@ -42,7 +42,7 @@ class Module(core.module.Module):
             {
                 "type": "toggle",
                 "action": self.toggle,
-                "button": core.input.MIDDLE_MOUSE,
+                "button": core.input.LEFT_MOUSE,
             },
             {
                 "type": "blue",
