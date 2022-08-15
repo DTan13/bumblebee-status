@@ -72,6 +72,11 @@ class Module(core.module.Module):
             util.cli.execute(command)
 
     def popup(self, widget):
+        popupcmd = self.parameter("popupcmd", "");
+        if (popupcmd != ""):
+            util.cli.execute(popupcmd)
+            return
+
         menu = util.popup.menu()
         reboot_cmd = self.parameter("reboot", "reboot")
         shutdown_cmd = self.parameter("shutdown", "shutdown -h now")
@@ -96,7 +101,7 @@ class Module(core.module.Module):
         menu.add_menuitem(
             "log out",
             callback=functools.partial(
-                self.__on_command, "Log out", "Log out?", "i3exit logout"
+                self.__on_command, "Log out", "Log out?", logout_cmd
             ),
         )
         # don't ask for these
